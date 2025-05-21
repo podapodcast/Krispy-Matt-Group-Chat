@@ -144,7 +144,7 @@
                         </div>
                         <div class="flex flex-col">
                             <span class="text-xs text-red-400 font-medium">Admin</span>
-                            <p class="text-sm">Good morning everyone! Welcome to another day in our exclusive Krispy Matt fan group. Remember to keep all discussions respectful.</p>
+                            <p class="text-sm">Good day everyone! Welcome to another day in our exclusive Krispy Matt fan group. Remember to keep all discussions respectful.</p>
                             <span class="text-xs text-gray-500 self-end mt-1">9:00 AM</span>
                         </div>
                     </div>
@@ -290,10 +290,10 @@
 
                 <div class="message-bubble-received p-2">
                     <div class="flex">
-                        <div class="w-8 h-8 rounded-full bg-cover bg-center mr-2 flex-shrink-0" style="background-image: url('/image/celebrity_profile.jpg');">
+                        <div class="w-8 h-8 rounded-full bg-cover bg-center mr-2 flex-shrink-0" style="background-image: url('/image/fan_profile5.jpg');">
                         </div>
                         <div class="flex flex-col">
-                            <span class="text-xs text-red-400 font-medium">Admin</span>
+                            <span class="text-xs text-red-400 font-medium">Mia</span>
                             <p class="text-sm">I think so..and yes it would be nice having her on here and it would be nice following her TikTok account and other social media just to grow her social media account.</p>
                             <span class="text-xs text-gray-500 self-end mt-1">10:36 AM</span>
                         </div>
@@ -306,7 +306,7 @@
                         </div>
                         <div class="flex flex-col">
                             <span class="text-xs text-orange-400 font-medium">Elizabeth</span>
-                            <p class="text-sm">Being a verified fan costs a $500 which I believe each and everyone did get that paid before being a verified fan and getting into this app..so i believe once she get herself verified then we all will be right here to welcome the lady who stole Krispy Matt hearts, cause I can definitely tell that Matt is so much inlove with her when talking about her on his live stream last night.</p>
+                            <p class="text-sm">Being a verified fan costs some tips which I believe each and everyone did get that paid before being a verified fan and getting into this app..so i believe once she get herself verified then we all will be right here to welcome the lady who stole Krispy Matt hearts, cause I can definitely tell that Matt is so much inlove with her when talking about her on his live stream last night.</p>
                             <span class="text-xs text-gray-500 self-end mt-1">10:38 AM</span>
                         </div>
                     </div>
@@ -343,47 +343,36 @@
     </div>
 
     <script>
-        // Show loading screen for 10 seconds
+    // When page loads, simulate loading then show profile popup
+    window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             document.getElementById('loading-screen').classList.add('hidden');
             document.getElementById('group-profile').classList.remove('hidden');
-        }, 10000);
+        }, 2000); // Simulated 2 second loading
+    });
 
-        // View Group button click
-        document.getElementById('view-group-btn').addEventListener('click', () => {
-            document.getElementById('group-profile').classList.add('hidden');
-            document.getElementById('chat-interface').classList.remove('hidden');
-            document.getElementById('chat-interface').classList.add('fade-in');
-            
-            // Scroll to bottom of chat
-            const chatMessages = document.getElementById('chat-messages');
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        });
+    // View group button shows chat interface
+    document.getElementById('view-group-btn').addEventListener('click', () => {
+        document.getElementById('group-profile').classList.add('hidden');
+        document.getElementById('chat-interface').classList.remove('hidden');
+    });
 
-        // Back button click
-        document.getElementById('back-btn').addEventListener('click', () => {
-            document.getElementById('chat-interface').classList.add('hidden');
-            document.getElementById('group-profile').classList.remove('hidden');
-        });
+    // Verify button shows the verification popup
+    document.getElementById('verify-btn').addEventListener('click', () => {
+        document.getElementById('verification-popup').classList.remove('hidden');
+    });
 
-        // Verify button click
-        document.getElementById('verify-btn').addEventListener('click', () => {
-            document.getElementById('verification-popup').classList.remove('hidden');
-        });
+    // Cancel verification
+    document.getElementById('cancel-verify-btn').addEventListener('click', () => {
+        document.getElementById('verification-popup').classList.add('hidden');
+    });
 
-        // Cancel verification button click
-        document.getElementById('cancel-verify-btn').addEventListener('click', () => {
-            document.getElementById('verification-popup').classList.add('hidden');
-        });
+    // Optional: Back button in header returns to group profile (if desired)
+    document.getElementById('back-btn').addEventListener('click', () => {
+        document.getElementById('chat-interface').classList.add('hidden');
+        document.getElementById('group-profile').classList.remove('hidden');
+    });
+</script>
 
-        // For demo purposes, let's make the loading screen shorter if needed
-        // Uncomment this to make loading only 3 seconds instead of 10
-        /*
-        setTimeout(() => {
-            document.getElementById('loading-screen').classList.add('hidden');
-            document.getElementById('group-profile').classList.remove('hidden');
-        }, 3000);
-        */
-    </script>
 </body>
 </html>
